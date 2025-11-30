@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DesainGambarPro - Jasa Desain Profesional Indonesia</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #3f37c9;
+            --accent: #4895ef;
+            --dark: #240046;
+            --light: #f8f9fa;
+            --success: #06d6a0;
+            --warning: #ffd166;
+            --danger: #ef476f;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* HEADER DENGAN BACKGROUND IMAGE */
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)),
+                        url("bg.jpg") 
+                        center center / cover no-repeat;
+            color: white;
+            text-align: center;
+            padding: 120px 20px 90px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+
+        header h1 { 
+            font-size: 4.2em; 
+            font-weight: 700; 
+            margin-bottom: 15px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.7);
+        }
+        header p { 
+            font-size: 1.5em; 
+            opacity: 0.95;
+            max-width: 900px;
+            margin: 0 auto;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+        }
+
+        nav {
+            background: rgba(0,0,0,0.85);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 30px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        nav a:hover { color: var(--warning); }
+
+        section { padding: 80px 20px; max-width: 1400px; margin: 0 auto; }
+
+        h2 {
+            text-align: center;
+            font-size: 2.8em;
+            margin-bottom: 50px;
+            color: var(--dark);
+            position: relative;
+        }
+        h2::after {
+            content: '';
+            width: 100px;
+            height: 5px;
+            background: var(--primary);
+            display: block;
+            margin: 15px auto;
+            border-radius: 3px;
+        }
+
+        .katalog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .item {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+        .item:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(67, 97, 238, 0.2);
+        }
+        .item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        .item:hover img { transform: scale(1.1); }
+
+        .item-details { padding: 25px; text-align: center; }
+        .item-details h3 { font-size: 1.5em; margin-bottom: 10px; color: var(--dark); }
+        .harga { font-size: 1.4em; font-weight: 700; color: var(--primary); margin: 15px 0; }
+        .item-details button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .item-details button:hover {
+            background: var(--secondary);
+            transform: scale(1.05);
+        }
+
+        #pemesanan {
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.1);
+        }
+
+        form label {
+            font-weight: 600;
+            color: var(--dark);
+            display: block;
+            margin: 20px 0 8px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1em;
+            transition: all 0.3s;
+        }
+        input:focus, select:focus, textarea:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+        }
+
+        button[type="submit"] {
+            background: var(--success);
+            color: white;
+            padding: 18px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.3em;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.3s;
+        }
+        button[type="submit"]:hover {
+            background: #05b583;
+            transform: translateY(-3px);
+        }
+
+        #pembayaran {
+            display: none;
+            margin-top: 40px;
+            padding: 40px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        #qris-img {
+            width: 280px;
+            height: 280px;
+            margin: 20px auto;
+            display: block;
+            border: 8px solid white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 50px;
+        }
+
+        /* Responsif */
+        @media (max-width: 768px) {
+            header { padding: 90px 20px 70px; }
+            header h1 { font-size: 2.8em; }
+            header p { font-size: 1.2em; }
+            nav a { margin: 0 15px; font-size: 0.95em; }
+            .katalog-grid { grid-template-columns: 1fr; }
+            #pemesanan { padding: 30px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER DENGAN BACKGROUND IMAGE -->
+    <header>
+        <h1>DesainGambarPro</h1>
+        <p>Jasa Desain Grafis Profesional • Revisi Gratis • Harga Terjangkau • Pengerjaan Cepat</p>
+    </header>
+
+    <nav>
+        <a href="#katalog">Katalog</a>
+        <a href="#pemesanan">Pesan Sekarang</a>
+        <a href="#kontak">Kontak</a>
+    </nav>
+
+    <!-- SEMUA BAGIAN BAWAH SAMA PERSIS SEPERTI SEBELUMNYA -->
+    <section id="katalog">
+        <h2>Pilih Layanan Desain Anda</h2>
+        <div class="katalog-grid">
+
+            <div class="item" onclick="pilihDesain('Anime Headshot', 50000)">
+                <img src="headshot.jfif" alt="headshot">
+                <div class="item-details">
+                    <h3>Anime Headshot</h3>
+                    <p>Desain anime headshot bergaya clean dan detail, cocok untuk avatar atau ikon profil. Hasil HD dan bisa disesuaikan sesuai permintaan.</p>
+                    <div class="harga">Rp 50.000</div>
+                    <button>Pesan Sekarang</button>
+                </div>
+            </div>
+
+            <div class="item" onclick="pilihDesain('Anime Bust Up', 75000)">
+                <img src="bust up.jfif" alt="bust up">
+                <div class="item-details">
+                    <h3>Anime Bust Up</h3>
+                    <p>Desain anime bust up dengan gaya clean dan detail. Cocok untuk avatar, ilustrasi, atau konten. Hasil HD dan bisa disesuaikan sesuai permintaan.</p>
+                    <div class="harga">Rp 75.000</div>
+                    <button>Pesan Sekarang</button>
+                </div>
+            </div>
+
+            <div class="item" onclick="pilihDesain('Anime Half Body', 150000)">
+                <img src="Am I cute_.jfif" alt="half body">
+                <div class="item-details">
+                    <h3>Anime Half Body</h3>
+                    <p>Desain anime half body bergaya clean dan detail. Cocok untuk avatar, ilustrasi, dan kebutuhan konten. Hasil HD dan dapat disesuaikan sesuai permintaan.</p>
+                    <div class="harga">Rp 150.000</div>
+                    <button>Pesan Sekarang</button>
+                </div>
+            </div>
+
+            <div class="item" onclick="pilihDesain('Anime Full Body', 400000)">
+                <img src="Jinna.jfif" alt="full body">
+                <div class="item-details">
+                    <h3>Anime Full Body</h3>
+                    <p>Desain anime full body dengan detail rapi dan gaya clean. Cocok untuk poster, avatar, dan kebutuhan ilustrasi. Hasil HD dan bisa disesuaikan sesuai permintaan.</p>
+                    <div class="harga">Rp 400.000</div>
+                    <button>Pesan Sekarang</button>
+                </div>
+            </div>
+
+            <div class="item" onclick="pilihDesain('Background Anime', 150000)">
+                <img src="download.jfif" alt="bg anime">
+                <div class="item-details">
+                    <h3>Background Anime</h3>
+                    <p>Desain background anime dengan detail rapi dan warna menarik. Cocok untuk ilustrasi, proyek kreatif, atau dekorasi. Bisa disesuaikan sesuai kebutuhan.</p>
+                    <div class="harga">Rp 150.000++</div>
+                    <button>Pesan Sekarang</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pemesanan">
+        <h2>Form Pemesanan Online</h2>
+        <form id="form-pemesanan">
+            <label>Nama Lengkap</label>
+            <input type="text" id="nama" required>
+
+            <label>No. WhatsApp</label>
+            <input type="text" id="contact" placeholder="contoh: 081234567890" required>
+
+            <label>J & Jenis Desain yang Dipilih</label>
+            <select id="desain" required>
+                <option value="">-- Pilih Layanan --</option>
+                <option value="Anime Headshot - Rp 50.000">Anime Headshot - Rp 50.000</option>
+                <option value="Anime Bust Up - Rp 75.000">Anime Bust Up - Rp 75.000</option>
+                <option value="Anime Half Body - Rp 150.000">Anime Half Body - Rp 150.000</option>
+                <option value="Anime Full Body - Rp 400.000">Anime Full Body - Rp 400.000</option>
+                <option value="Background Anime - Rp 150.000++">Background Anime - Rp 150.000</option>
+            </select>
+
+            <label>Detail Permintaan / Referensi</label>
+            <textarea id="detail" rows="6" placeholder="Jelaskan warna, konsep, teks yang diinginkan, atau lampirkan contoh..."></textarea>
+
+            <label>Metode Pembayaran</label>
+            <select id="metode-pembayaran" required>
+                <option value="">-- Pilih Pembayaran --</option>
+                <option value="QRIS">QRIS (Semua E-Wallet & Bank)</option>
+            </select>
+
+            <button type="submit">Lanjut ke Pembayaran</button>
+        </form>
+
+        <div id="pembayaran">
+            <h3>Segera Lakukan Pembayaran</h3>
+            <p><strong>Gunakan QRIS berikut untuk semua e-wallet & mobile banking:</strong></p>
+            <img id="qris-img" src="Tipe-QRIS-statis-small-large.jpg" alt="QRIS Pembayaran">
+            <p>Setelah pembayaran berhasil, Anda akan langsung diarahkan ke WhatsApp Admin untuk proses desain.</p>
+        </div>
+    </section>
+
+    <footer id="kontak">
+        <p>DesainGambarPro © 2025 | WhatsApp: <strong>62851-2265-9733</strong> | Email: hello@desaingambarpro.id</p>
+        <p>100% Revisi Gratis • Pengerjaan Cepat • Harga Transparan</p>
+    </footer>
+
+    <script>
+        function pilihDesain(nama, harga) {
+            document.getElementById('desain').value = nama + ' - Rp ' + harga.toLocaleString('id-ID');
+            document.documentElement.scrollTop = document.body.scrollTop = document.getElementById('pemesanan').offsetTop - 100;
+            alert('Berhasil memilih: ' + nama + '\nHarga: Rp ' + harga.toLocaleString('id-ID'));
+        }
+
+        document.getElementById('form-pemesanan').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const nama = document.getElementById('nama').value.trim();
+            const contact = document.getElementById('contact').value.trim();
+            const desain = document.getElementById('desain').value;
+            const detail = document.getElementById('detail').value.trim();
+            const metode = document.getElementById('metode-pembayaran').value;
+
+            if (!nama || !contact || !desain.includes('Rp') || !detail || !metode) {
+                alert('Mohon lengkapi semua data!');
+                return;
+            }
+
+            document.getElementById('pembayaran').style.display = 'block';
+
+            const adminWA = "6285122659733";
+
+            const pesan = `Halo DesainGambarPro!
+
+Saya *${nama}* ingin memesan:
+${desain}
+
+Kontak: ${contact}
+Detail: ${detail}
+Pembayaran via: ${metode}
+
+Mohon segera diproses ya. Terima kasih!`;
+
+            setTimeout(() => {
+                const url = `https://wa.me/${adminWA}?text=${encodeURIComponent(pesan)}`;
+                window.open(url, '_blank');
+            }, 2500);
+        });
+    </script>
+</body>
+</html>
