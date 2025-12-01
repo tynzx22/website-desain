@@ -25,31 +25,16 @@
             line-height: 1.6;
         }
 
-        /* HEADER DENGAN BACKGROUND IMAGE */
         header {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)),
-                        url("bg.jpg") 
-                        center center / cover no-repeat;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)),
+                        url("bg.jpg") center center / cover no-repeat;
             color: white;
             text-align: center;
             padding: 120px 20px 90px;
-            position: relative;
             box-shadow: 0 10px 30px rgba(0,0,0,0.4);
         }
-
-        header h1 { 
-            font-size: 4.2em; 
-            font-weight: 700; 
-            margin-bottom: 15px;
-            text-shadow: 0 4px 20px rgba(0,0,0,0.7);
-        }
-        header p { 
-            font-size: 1.5em; 
-            opacity: 0.95;
-            max-width: 900px;
-            margin: 0 auto;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.6);
-        }
+        header h1 { font-size: 4.2em; font-weight: 700; margin-bottom: 15px; text-shadow: 0 4px 20px rgba(0,0,0,0.7); }
+        header p { font-size: 1.5em; max-width: 900px; margin: 0 auto; opacity: 0.95; text-shadow: 0 2px 10px rgba(0,0,0,0.6); }
 
         nav {
             background: rgba(0,0,0,0.85);
@@ -58,153 +43,86 @@
             top: 0;
             z-index: 100;
             backdrop-filter: blur(10px);
+            text-align: center;
         }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 30px;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
+        nav a { color: white; text-decoration: none; margin: 0 30px; font-weight: 600; transition: color 0.3s; }
         nav a:hover { color: var(--warning); }
 
         section { padding: 80px 20px; max-width: 1400px; margin: 0 auto; }
+        h2 { text-align: center; font-size: 2.8em; margin-bottom: 50px; color: var(--dark); position: relative; }
+        h2::after { content: ''; width: 100px; height: 5px; background: var(--primary); display: block; margin: 15px auto 0; border-radius: 3px; }
 
-        h2 {
-            text-align: center;
-            font-size: 2.8em;
-            margin-bottom: 50px;
-            color: var(--dark);
-            position: relative;
-        }
-        h2::after {
-            content: '';
-            width: 100px;
-            height: 5px;
-            background: var(--primary);
-            display: block;
-            margin: 15px auto;
-            border-radius: 3px;
-        }
-
-        .katalog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .item {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.4s ease;
-            cursor: pointer;
-        }
-        .item:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 20px 40px rgba(67, 97, 238, 0.2);
-        }
-        .item img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
+        .katalog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .item { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: all 0.4s ease; cursor: pointer; }
+        .item:hover { transform: translateY(-15px); box-shadow: 0 20px 40px rgba(67,97,238,0.2); }
+        .item img { width: 100%; height: 220px; object-fit: cover; transition: transform 0.5s; }
         .item:hover img { transform: scale(1.1); }
-
         .item-details { padding: 25px; text-align: center; }
         .item-details h3 { font-size: 1.5em; margin-bottom: 10px; color: var(--dark); }
         .harga { font-size: 1.4em; font-weight: 700; color: var(--primary); margin: 15px 0; }
-        .item-details button {
-            background: var(--primary);
-            color: white;
-            border: none;
-            padding: 12px 30px;
-            border-radius: 50px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        .item-details button:hover {
-            background: var(--secondary);
-            transform: scale(1.05);
-        }
+        .item-details button { background: var(--primary); color: white; border: none; padding: 12px 30px; border-radius: 50px; font-weight: 600; cursor: pointer; transition: all 0.3s; }
+        .item-details button:hover { background: var(--secondary); transform: scale(1.05); }
 
-        #pemesanan {
-            background: white;
-            border-radius: 20px;
-            padding: 50px;
-            box-shadow: 0 15px 50px rgba(0,0,0,0.1);
-        }
-
-        form label {
-            font-weight: 600;
-            color: var(--dark);
-            display: block;
-            margin: 20px 0 8px;
-        }
-
+        #pemesanan { background: white; border-radius: 20px; padding: 50px; box-shadow: 0 15px 50px rgba(0,0,0,0.1); position: relative; }
+        form label { display: block; font-weight: 600; color: var(--dark); margin: 20px 0 8px; }
         input, select, textarea {
-            width: 100%;
-            padding: 15px;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            font-size: 1em;
+            width: 100%; padding: 15px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 1em; margin-top: 8px;
             transition: all 0.3s;
         }
         input:focus, select:focus, textarea:focus {
-            border-color: var(--primary);
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+            border-color: var(--primary); outline: none; box-shadow: 0 0 0 3px rgba(67,97,238,0.2);
+        }
+
+        .loading-overlay {
+            display: none;
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(255,255,255,0.95);
+            border-radius: 20px;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            z-index: 999;
+        }
+        .spinner {
+            width: 60px;
+            height: 60px;
+            border: 6px solid #f3f3f3;
+            border-top: 6px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .loading-text {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: var(--primary);
         }
 
         button[type="submit"] {
-            background: var(--success);
-            color: white;
-            padding: 18px 40px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.3em;
-            font-weight: 600;
-            cursor: pointer;
-            margin-top: 20px;
-            transition: all 0.3s;
+            background: var(--success); color: white; padding: 18px 40px; border: none;
+            border-radius: 50px; font-size: 1.3em; font-weight: 600; cursor: pointer;
+            margin-top: 30px; transition: all 0.3s; width: 100%;
         }
-        button[type="submit"]:hover {
-            background: #05b583;
-            transform: translateY(-3px);
-        }
+        button[type="submit"]:hover { background: #05b583; transform: translateY(-3px); }
 
         #pembayaran {
-            display: none;
-            margin-top: 40px;
-            padding: 40px;
-            background: #f8f9fa;
-            border-radius: 15px;
-            text-align: center;
+            display: none; margin-top: 40px; padding: 40px; background: #f8f9fa;
+            border-radius: 15px; text-align: center;
         }
-
-        #qris-img {
-            width: 280px;
-            height: 280px;
-            margin: 20px auto;
-            display: block;
-            border: 8px solid white;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        .ewallet-option {
+            display: inline-block; margin: 20px; padding: 25px; background: white;
+            border-radius: 15px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); width: 280px; vertical-align: top;
         }
+        .ewallet-option img { width: 80px; height: 80px; margin-bottom: 15px; }
+        .nomor-ewallet { font-size: 1.6em; font-weight: 700; color: var(--primary); margin: 15px 0; letter-spacing: 1px; }
 
-        footer {
-            background: var(--dark);
-            color: white;
-            text-align: center;
-            padding: 40px 20px;
-            margin-top: 50px;
-        }
+        footer { background: var(--dark); color: white; text-align: center; padding: 40px 20px; margin-top: 50px; }
 
-        /* Responsif */
         @media (max-width: 768px) {
             header { padding: 90px 20px 70px; }
             header h1 { font-size: 2.8em; }
@@ -212,12 +130,12 @@
             nav a { margin: 0 15px; font-size: 0.95em; }
             .katalog-grid { grid-template-columns: 1fr; }
             #pemesanan { padding: 30px 20px; }
+            .ewallet-option { width: 100%; margin: 15px 0; }
         }
     </style>
 </head>
 <body>
 
-    <!-- HEADER DENGAN BACKGROUND IMAGE -->
     <header>
         <h1>DesainGambarPro</h1>
         <p>Jasa Desain Grafis Profesional • Revisi Gratis • Harga Terjangkau • Pengerjaan Cepat</p>
@@ -229,56 +147,50 @@
         <a href="#kontak">Kontak</a>
     </nav>
 
-    <!-- SEMUA BAGIAN BAWAH SAMA PERSIS SEPERTI SEBELUMNYA -->
     <section id="katalog">
         <h2>Pilih Layanan Desain Anda</h2>
         <div class="katalog-grid">
-
             <div class="item" onclick="pilihDesain('Anime Headshot', 50000)">
-                <img src="headshot.jfif" alt="headshot">
+                <img src="headshot.jfif" alt="Anime Headshot">
                 <div class="item-details">
                     <h3>Anime Headshot</h3>
-                    <p>Desain anime headshot bergaya clean dan detail, cocok untuk avatar atau ikon profil. Hasil HD dan bisa disesuaikan sesuai permintaan.</p>
+                    <p>Desain anime headshot bergaya clean dan detail.</p>
                     <div class="harga">Rp 50.000</div>
                     <button>Pesan Sekarang</button>
                 </div>
             </div>
-
             <div class="item" onclick="pilihDesain('Anime Bust Up', 75000)">
-                <img src="bust up.jfif" alt="bust up">
+                <img src="bust up.jfif" alt="Anime Bust Up">
                 <div class="item-details">
                     <h3>Anime Bust Up</h3>
-                    <p>Desain anime bust up dengan gaya clean dan detail. Cocok untuk avatar, ilustrasi, atau konten. Hasil HD dan bisa disesuaikan sesuai permintaan.</p>
+                    <p>Desain anime bust up dengan gaya clean dan detail.</p>
                     <div class="harga">Rp 75.000</div>
                     <button>Pesan Sekarang</button>
                 </div>
             </div>
-
             <div class="item" onclick="pilihDesain('Anime Half Body', 150000)">
-                <img src="Am I cute_.jfif" alt="half body">
+                <img src="Am I cute_.jfif" alt="Anime Half Body">
                 <div class="item-details">
                     <h3>Anime Half Body</h3>
-                    <p>Desain anime half body bergaya clean dan detail. Cocok untuk avatar, ilustrasi, dan kebutuhan konten. Hasil HD dan dapat disesuaikan sesuai permintaan.</p>
+                    <p>Desain anime half body bergaya clean dan detail.</p>
                     <div class="harga">Rp 150.000</div>
                     <button>Pesan Sekarang</button>
                 </div>
             </div>
-
             <div class="item" onclick="pilihDesain('Anime Full Body', 400000)">
-                <img src="Jinna.jfif" alt="full body">
+                <img src="Jinna.jfif" alt="Anime Full Body">
                 <div class="item-details">
                     <h3>Anime Full Body</h3>
-                    <p>Desain anime full body dengan detail rapi dan gaya clean. Cocok untuk poster, avatar, dan kebutuhan ilustrasi. Hasil HD dan bisa disesuaikan sesuai permintaan.</p>
+                    <p>Desain anime full body dengan detail rapi.</p>
                     <div class="harga">Rp 400.000</div>
                     <button>Pesan Sekarang</button>
                 </div>
             </div>
-
             <div class="item" onclick="pilihDesain('Background Anime', 150000)">
-                <img src="download.jfif" alt="bg anime">
+                <img src="download.jfif" alt="Background Anime">
                 <div class="item-details">
                     <h3>Background Anime</h3>
-                    <p>Desain background anime dengan detail rapi dan warna menarik. Cocok untuk ilustrasi, proyek kreatif, atau dekorasi. Bisa disesuaikan sesuai kebutuhan.</p>
+                    <p>Desain background anime dengan detail rapi.</p>
                     <div class="harga">Rp 150.000++</div>
                     <button>Pesan Sekarang</button>
                 </div>
@@ -288,6 +200,12 @@
 
     <section id="pemesanan">
         <h2>Form Pemesanan Online</h2>
+
+        <div class="loading-overlay" id="loading">
+            <div class="spinner"></div>
+            <div class="loading-text">Memproses pesanan Anda...</div>
+        </div>
+
         <form id="form-pemesanan">
             <label>Nama Lengkap</label>
             <input type="text" id="nama" required>
@@ -295,33 +213,48 @@
             <label>No. WhatsApp</label>
             <input type="text" id="contact" placeholder="contoh: 081234567890" required>
 
-            <label>J & Jenis Desain yang Dipilih</label>
+            <label>Jenis Desain yang Dipilih</label>
             <select id="desain" required>
                 <option value="">-- Pilih Layanan --</option>
                 <option value="Anime Headshot - Rp 50.000">Anime Headshot - Rp 50.000</option>
                 <option value="Anime Bust Up - Rp 75.000">Anime Bust Up - Rp 75.000</option>
                 <option value="Anime Half Body - Rp 150.000">Anime Half Body - Rp 150.000</option>
                 <option value="Anime Full Body - Rp 400.000">Anime Full Body - Rp 400.000</option>
-                <option value="Background Anime - Rp 150.000++">Background Anime - Rp 150.000</option>
+                <option value="Background Anime - Rp 150.000++">Background Anime - Rp 150.000++</option>
             </select>
 
             <label>Detail Permintaan / Referensi</label>
-            <textarea id="detail" rows="6" placeholder="Jelaskan warna, konsep, teks yang diinginkan, atau lampirkan contoh..."></textarea>
+            <textarea id="detail" rows="6" placeholder="Jelaskan warna, pose, pakaian, ekspresi, atau lampirkan referensi..."></textarea>
 
             <label>Metode Pembayaran</label>
             <select id="metode-pembayaran" required>
-                <option value="">-- Pilih Pembayaran --</option>
-                <option value="QRIS">QRIS (Semua E-Wallet & Bank)</option>
+                <option value="">-- Pilih Metode Pembayaran --</option>
+                <option value="DANA">DANA</option>
+                <option value="GoPay">GoPay</option>
             </select>
 
             <button type="submit">Lanjut ke Pembayaran</button>
         </form>
 
         <div id="pembayaran">
-            <h3>Segera Lakukan Pembayaran</h3>
-            <p><strong>Gunakan QRIS berikut untuk semua e-wallet & mobile banking:</strong></p>
-            <img id="qris-img" src="Tipe-QRIS-statis-small-large.jpg" alt="QRIS Pembayaran">
-            <p>Setelah pembayaran berhasil, Anda akan langsung diarahkan ke WhatsApp Admin untuk proses desain.</p>
+            <h3>Silakan Transfer ke Salah Satu E-Wallet Berikut</h3>
+            <p>Setelah transfer, screenshot bukti pembayaran lalu kirim ke WhatsApp Admin.</p>
+
+            <div class="ewallet-option">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Dana_Logo.svg" alt="DANA">
+                <div class="nomor-ewallet">0851-2265-9733</div>
+                <p><strong>a.n. DesainGambarPro</strong></p>
+            </div>
+
+            <div class="ewallet-option">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/GoPay_Logo.png" alt="GoPay">
+                <div class="nomor-ewallet">0851-2265-9733</div>
+                <p><strong>a.n. DesainGambarPro</strong></p>
+            </div>
+
+            <p style="margin-top: 30px; font-size: 1.1em;">
+                Setelah transfer berhasil, kamu akan otomatis diarahkan ke WhatsApp Admin.
+            </p>
         </div>
     </section>
 
@@ -347,29 +280,29 @@
             const metode = document.getElementById('metode-pembayaran').value;
 
             if (!nama || !contact || !desain.includes('Rp') || !detail || !metode) {
-                alert('Mohon lengkapi semua data!');
+                alert('Mohon lengkapi semua data dengan benar!');
                 return;
             }
 
-            document.getElementById('pembayaran').style.display = 'block';
+            document.getElementById('loading').style.display = 'flex';
+            document.querySelector('form').style.opacity = '0.3';
 
-            const adminWA = "6285122659733";
-
-            const pesan = `Halo DesainGambarPro!
-
-Saya *${nama}* ingin memesan:
-${desain}
-
-Kontak: ${contact}
-Detail: ${detail}
-Pembayaran via: ${metode}
-
-Mohon segera diproses ya. Terima kasih!`;
+            const adminWA = "6285122659733";  // Nomor WhatsApp baru (tanpa spasi/tanda +)
+            const pesan = `Halo DesainGambarPro!%0A%0A` +
+                         `Saya *${nama}* ingin memesan:%0A` +
+                         `➤ ${desain}%0A%0A` +
+                         `Kontak WA: ${contact}%0A` +
+                         `Detail permintaan:%0A${detail}%0A%0A` +
+                         `Pembayaran via *${metode}*%0A` +
+                         `Sudah transfer, mohon segera diproses ya kak! Terima kasih ✨`;
 
             setTimeout(() => {
-                const url = `https://wa.me/${adminWA}?text=${encodeURIComponent(pesan)}`;
-                window.open(url, '_blank');
-            }, 2500);
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('pembayaran').style.display = 'block';
+                document.querySelector('form').style.opacity = '1';
+
+                window.open(`https://wa.me/${adminWA}?text=${pesan}`, '_blank');
+            }, 2800);
         });
     </script>
 </body>
